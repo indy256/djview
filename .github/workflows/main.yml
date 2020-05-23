@@ -40,3 +40,8 @@ jobs:
         cd ..
         & nmake
         dir
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: WinDjView.exe
+        path: Release/WinDjView.exe

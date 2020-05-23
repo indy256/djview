@@ -39,7 +39,7 @@ jobs:
         & nmake
         cd ..
         & nmake
-        & 7z a -m0=lzma2 -mx WinDjView.7z Release/WinDjView.exe
+        #& 7z a -m0=lzma2 -mx WinDjView.7z Release/WinDjView.exe
 
     - uses: actions/upload-artifact@v2
       with:

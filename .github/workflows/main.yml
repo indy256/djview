@@ -29,9 +29,14 @@ jobs:
                 }
             }}
         }
+        #cd libdjvu
+        #Invoke-Environment "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+        #& nmake X64=1
+        #cd ..
+        #& nmake X64=1
         cd libdjvu
-        Invoke-Environment "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
-        & nmake.exe "X64=1"
+        Invoke-Environment "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsamd64_x86.bat"
+        & nmake
         cd ..
-        & nmake X64=1
+        & nmake
         dir

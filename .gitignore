@@ -3,5 +3,7 @@ Debug_64
 Release
 Release_x64
 libdjvu/Objs
+libdjvu/Objs.dbg
 libdjvu/Objs64
+libdjvu/Objs64.dbg
 *.lib

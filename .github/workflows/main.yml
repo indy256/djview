@@ -43,5 +43,5 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: WinDjView.zip
+        name: WinDjView
         path: Release/WinDjView.exe

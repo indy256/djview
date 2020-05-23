@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: build
+      run: |
+        function Invoke-Environment {
+            param
+            (
+                # Any cmd shell command, normally a configuration batch file.
+                [Parameter(Mandatory=$true)]
+                [string] $Command
+            )
+
+            $Command = "`"" + $Command + "`""
+            cmd /c "$Command > nul 2>&1 && set" | . { process {
+                if ($_ -match '^([^=]+)=(.*)') {
+                    [System.Environment]::SetEnvironmentVariable($matches[1], $matches[2])
+                }
+            }}
+        }
+        #cd libdjvu
+        #Invoke-Environment "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+        #& nmake X64=1
+        #cd ..
+        #& nmake X64=1
+        cd libdjvu
+        Invoke-Environment "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsamd64_x86.bat"
+        & nmake
+        cd ..
+        & nmake
+        #& 7z a -m0=lzma2 -mx WinDjView.7z Release/WinDjView.exe
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: WinDjView
+        path: Release/WinDjView.exe

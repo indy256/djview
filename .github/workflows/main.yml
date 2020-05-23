@@ -16,5 +16,5 @@ jobs:
       run: |
         cd libdjvu
         & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
-        & nmake.exe
+        & "nmake.exe"
         dir

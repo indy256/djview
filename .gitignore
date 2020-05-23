@@ -7,3 +7,6 @@ libdjvu/Objs.dbg
 libdjvu/Objs64
 libdjvu/Objs64.dbg
 *.lib
+*.pdb
+.vs
+*.user

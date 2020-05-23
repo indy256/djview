@@ -14,8 +14,8 @@ jobs:
 
     - name: build
       run: |
-        "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+        ver
         cd libdjvu
-        nmake.exe
+        "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.25.28610\bin\Hostx64\x64\nmake.exe"
         cd ..
         nmake.exe
